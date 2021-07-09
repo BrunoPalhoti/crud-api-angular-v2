@@ -1,0 +1,19 @@
+<h2 class="container">Lista de Categiria</h2>
+<table class="table container">
+  <tr>
+    <th>Id</th>
+    <th>Nome</th>
+    <th>Descrição</th>
+    <th>Ações</th>
+    <th><button [routerLink]="['/categoria/categotia-form']" class="btn btn-success">Novo</button></th>
+  </tr>
+  <tr *ngFor="let c of categorias?.data"> <!--forech-->
+    <td>{{ c.id }}</td>
+    <td>{{ c.name }}</td>
+    <td>{{ c.description }}</td>
+    <td class="btn-group">
+      <button class="btn btn-info mr-2" [routerLink]="['/categoria/categotia-form',c.id]">Editar</button>
+      <button class="btn btn-danger" (click)="deletar(c.id)">Deletar</button>
+    </td>
+  </tr>
+</table>

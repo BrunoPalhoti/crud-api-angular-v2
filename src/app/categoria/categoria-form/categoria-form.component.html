@@ -1,0 +1,27 @@
+<form [formGroup]="meuForm" (submit)="onSubmit()">
+  <h2 class="container">Fomulario de Categoria</h2>
+
+  <div class="form-group container">
+    <label>Nome</label>
+    <input type="text" formControlName="name" class="form-control" placeholder="Nome"/>
+  </div>
+  <erro-field-messages [field]="meuForm.controls.name" [nome]="'Nome '"></erro-field-messages>
+
+  <div class="form-group container">
+    <label>Descrição</label>
+    <input type="text" formControlName="description" class="form-control" placeholder="Descrição"/>
+  </div>
+  <erro-field-messages [field]="meuForm.controls.description" [nome]="'Descrição '"></erro-field-messages>
+
+  <div class="form-group container">
+    <label>Status</label>
+    <input type="text" formControlName="status" class="form-control" placeholder="Status"/>
+  </div>
+  <erro-field-messages [field]="meuForm.controls.status" [nome]="'Status '"></erro-field-messages>
+
+  <div class="form-group container text-center">
+    <button type="submit" [disabled]="!meuForm.valid" class="btn btn-primary">
+      Enviar
+    </button>
+  </div>
+</form>

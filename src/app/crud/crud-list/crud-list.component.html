@@ -1,0 +1,19 @@
+<h2 class="container">Lista de Usuario</h2>
+<table class="table container">
+  <tr>
+    <th>Id</th>
+    <th>Nome</th>
+    <th>Email</th>
+    <th>Ações</th>
+    <th><button [routerLink]="['/usuario/usuario-form']" class="btn btn-success">Novo</button></th>
+  </tr>
+  <tr *ngFor="let u of usuarios?.data"> <!--forech-->
+    <td>{{ u.id }}</td>
+    <td>{{ u.name }}</td>
+    <td>{{ u.email }}</td>
+    <td class="btn-group">
+      <button class="btn btn-info mr-2" [routerLink]="['/usuario/usuario-form', u.id]">Editar</button>
+      <button class="btn btn-danger" (click)="deletar(u.id)">Deletar</button>
+    </td>
+  </tr>
+</table>

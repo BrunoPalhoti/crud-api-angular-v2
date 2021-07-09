@@ -1,0 +1,29 @@
+<h2 class="container">Lista de Produto</h2>
+<table class="table container">
+  <tr>
+    <th>Id</th>
+    <th>Nome</th>
+    <th>Descrição</th>
+    <th>Preço</th>
+    <th>Categoria</th>
+    <th>Ações</th>
+    <th><button [routerLink]="['/produto/produto-form']" class="btn btn-success">Novo</button></th>
+  </tr>
+  <tr *ngFor="let p of produtos?.data"> <!--forech-->
+    <td>{{ p.id }}</td>
+    <td>{{ p.name }}</td>
+    <td>{{ p.description }}</td>
+    <td>{{ p.price }}</td>
+    <!--<td>
+      <ul>
+      <li class="list-group" *ngFor="let c of p.categories">{{c.name}}</li>
+      </ul>
+    </td>-->
+    <td>{{getCategorias(p.categories)}}</td> <!--Interpolação de metotos-->
+
+    <td class="btn-group">
+      <button class="btn btn-info mr-2" [routerLink]="['/produto-form',p.id]">Editar</button>
+      <button class="btn btn-danger" (click)="deletar(p.id)">Deletar</button>
+    </td>
+  </tr>
+</table>

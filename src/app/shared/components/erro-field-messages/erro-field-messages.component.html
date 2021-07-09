@@ -1,0 +1,5 @@
+<div class="alert alert-danger form-group container" *ngIf="field.status == 'INVALID' && field.touched">
+  <p> {{ getErrorMessage() }} </p>
+
+  <!-- <p *ngIf="field.errors.required">{{nome}} Obrigatório</p> -->
+</div>

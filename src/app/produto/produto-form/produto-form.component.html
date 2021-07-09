@@ -1,0 +1,57 @@
+<form [formGroup]="meuForm" (submit)="onsubmit()">
+  <h2 class="container">Fomulario de Produto</h2>
+
+  <div class="form-group container">
+    <label>Nome</label>
+    <input type="text" formControlName="name" class="form-control" placeholder="Nome"/>
+  </div>
+  <erro-field-messages [field]="meuForm.controls.name" [nome]="'Nome '"></erro-field-messages>
+
+  <div class="form-group container">
+    <label>Descrição</label>
+    <input type="text" formControlName="description" class="form-control" placeholder="Descrição"/>
+  </div>
+  <erro-field-messages [field]="meuForm.controls.description" [nome]="'Descrição '"></erro-field-messages>
+
+  <div class="form-group container">
+    <label>Imagem</label>
+    <input type="text" formControlName="image" class="form-control" placeholder="Imagem"/>
+  </div>
+  <erro-field-messages [field]="meuForm.controls.image" [nome]="'Imagem '"></erro-field-messages>
+
+  <div class="form-group container">
+    <label>Preço</label>
+    <input type="text" formControlName="price" class="form-control" placeholder="Preço"/>
+  </div>
+  <erro-field-messages [field]="meuForm.controls.price" [nome]="'Preço '"></erro-field-messages>
+
+  <div class="form-group container">
+    <label>Categoria</label>
+
+    <select class="form-control" formControlName="categories"> <!--listando o categorias de CategoriaService (getOne)-->
+      <option>Selecionar</option>
+      <option *ngFor="let c of categorias?.data" [value]="c.id">{{c.name}}</option>
+    </select>
+
+  </div>
+  <erro-field-messages [field]="meuForm.controls.categories" [nome]="'Categoria '"></erro-field-messages>
+
+  <div class="form-group container">
+    <label>Status</label>
+  </div>
+
+  <div class="form-check form-group container">
+    <input class="form-check-input" type="radio" id="RadioOne1" value="0" formControlName="status">
+    <label class="form-check-label form-control" for="RadioOne1">False</label>
+  </div>
+
+  <div class="form-check form-group container">
+    <input class="form-check-input" type="radio" id="RadioOne2" value="1" formControlName="status">
+    <label class="form-check-label form-control" for="RadioOne2">True</label>
+  </div>
+
+  <div class="form-group container text-center">
+    <button type="submit" [disabled]="!meuForm.valid" class="btn btn-primary">Enviar</button>
+  </div>
+
+</form>
